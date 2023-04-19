@@ -1,19 +1,11 @@
 [build]
+    image="ChatGPT-Next-Web"
     command = "yarn build"
-    publish = ".next/"
+    publish = ".next"
+    functions = "functions"
 
-
-[[headers]]
-    for = "/*"
-        [headers.values]
-        Access-Control-Allow-Origin = "*"
-        X-Frame-Options = "DENY"
-        X-XSS-Protection = "1; mode=block"
-        X-Content-Type-Options = "nosniff"
-        Referrer-Policy = "no-referrer-when-downgrade"
-
-# [[plugins]]
-# package = "@netlify/plugin-functions-core"
+[[plugins]]
+    package = "@netlify/plugin-nextjs"
 
 [context.production.environment]
     NODE_ENV = "production"
